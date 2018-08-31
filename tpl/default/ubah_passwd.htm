@@ -1,0 +1,29 @@
+<form action="ubah_passwd.php" method="post" enctype="multipart/form-data" name="frmubahpasswd" style="margin:0px ">
+  <table width="356" border="0" cellspacing="2" cellpadding="5">
+    <tr bgcolor="#A8E2C8">
+      <td width="164">Password Lama * </td>
+      <td width="3">:</td>
+      <td width="151"><input name="passwdlama" type="password" id="passwdlama" class="textbox"></td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td>Password Baru * </td>
+      <td>:</td>
+      <td><input name="passwdbaru" type="password" id="passwdbaru" class="textbox">	</td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td>Ulang Password Baru *</td>
+      <td>:</td>
+      <td><input name="retpasswdbaru" type="password" id="retpasswdbaru" class="textbox"></td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td colspan="3"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr align="center">
+          <td><input name="ubahpasswd" type="submit" class="button" id="ubahpasswd" value="OK">
+            <input name="id_user" type="hidden" id="id_user" value="{$id_user}"></td>
+          </tr>
+      </table></td>
+    </tr>
+  </table>
+</form>
+{$pesan}
+

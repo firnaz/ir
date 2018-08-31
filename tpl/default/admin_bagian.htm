@@ -1,0 +1,50 @@
+{literal}
+<script type="text/javascript" language="javascript">
+<!--
+	var hapusbagian1  = 'Apakah anda yakin ingin MENGHAPUS Bagian ';
+	var hapusbagian2  = '\n yang berarti MENGHAPUS seluruh file yang terdapat pada\nbagian ';
+	var kosongbagian1 = 'Apakah anda yakin ingin MENGHAPUS seluruh isi file \n yang terdapat pada Bagian ';
+//-->
+</script>
+<script src="images/cfm.js" type="text/javascript" language="javascript"></script>
+{/literal}
+<table width="100%"  border="0" cellspacing="2" cellpadding="1">
+  <tr bgcolor="#D3DCE3">
+    <td width="3%">&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="49%" align="center"><strong>Nama Bagian </strong></td>
+    <td width="23%" align="center"><strong>Jumlah File </strong></td>
+    <td width="19%" align="center"><strong>Total Bytes </strong></td>
+  </tr>
+  {section name=list loop=$nama_bagian}
+  <tr bgcolor="{cycle values='#ECF6E3,#E6ECD8'}" >
+    <td align="center" style="padding-bottom:4px" ><a href="admin_bagian.php?state=edit&id_bagian={$id_bagian[list]}"><img src="images/button_edit.png" alt="Edit" width="11" height="13" border="0"></a></td>
+    <td align="center" style="padding-bottom:4px" ><a href="admin_bagian.php?action=empty&id_bagian={$id_bagian[list]}" onClick="return confirmLink(this, kosongbagian1 + 
+					  '{$nama_bagian[list]}!!!')"><img src="images/button_empty.png" alt="Empty" width="11" height="13" border="0"></a></td>
+    <td align="center" style="padding-bottom:4px" ><a href="admin_bagian.php?action=delete&id_bagian={$id_bagian[list]}" onClick="return confirmLink(this, hapusbagian1 + '{$nama_bagian[list]}' + hapusbagian2 + 
+					  '{$nama_bagian[list]}!!!')"><img src="images/button_drop.png" alt="Delete" width="11" height="13" border="0"></a></td>
+    <td><div align="center" style="padding-bottom:4px" ><a href="admin_data.php?id_bagian={$id_bagian[list]}" class="link">{$nama_bagian[list]}</a></div></td>
+    <td><div align="right" style="padding-bottom:4px" >{$jumlah_file[list]}</div></td>
+    <td><div align="right" style="padding-bottom:4px" >{$total_bytes[list]}</div></td>
+  </tr>
+  {/section}
+</table>
+<div align="right">{$pagenavigation}</div>
+<strong>
+<div><br>
+  &bull; Tambah Bagian Baru</div>
+</strong> <br>
+<form action="admin_bagian.php" method="post" name="add_bagian" id="add_bagian" style="margin:0px ">
+  <table width="306"  border="0" cellpadding="0" cellspacing="0" bgcolor="#A8E2C8" style="border:1px solid black;padding:5px">
+    <tr>
+      <td width="100">Nama Bagian </td>
+      <td width="4">:</td>
+      <td><input name="bagian" type="text" id="bagian" class="textbox"></td>
+      <td><input type="submit" name="Submit" value="add" class="button">
+      <input name="action" type="hidden" id="action" value="add"></td>
+    </tr>
+  </table>
+</form>
+
+

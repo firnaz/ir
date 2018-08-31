@@ -1,0 +1,35 @@
+<form action="admin_user.php" method="post" enctype="multipart/form-data" name="frmUpdateUser" style="margin:0px ">
+  <table width="356" border="0" cellspacing="2" cellpadding="5">
+    <tr bgcolor="#A8E2C8">
+      <td width="120">Username * </td>
+      <td width="3">:</td>
+      <td width="195" bgcolor="#A8E2C8"><input name="uname" type="text" id="uname" value="{$uname}" class="textbox"></td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td>Password* </td>
+      <td>:</td>
+      <td><input name="passwd" type="password" id="passwd" class="textbox">	</td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td>Ulang Password *</td>
+      <td>:</td>
+      <td><input name="retpasswd" type="password" id="retpasswd" class="textbox"></td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td>Administrator</td>
+      <td>:</td>
+      <td><input name="kontrolisasi" type="checkbox" class="textbox" id="kontrolisasi" value="1" {$kontrolisasi}></td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td colspan="3"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr align="center">
+          <td><input type="submit" name="action" value="{$action}" class="button">
+            <input name="id_user" type="hidden" id="id_user" value="{$id_user}"></td>
+          <td>{$cancel}</td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+</form>
+{$pesan}
+

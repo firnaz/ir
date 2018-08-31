@@ -1,0 +1,6 @@
+1. Write TeX replacement table for at least ISO Latin1 characters
+2. Write correct TeX commands for most often used mathematical symbols
+   (20xx-25xx) into TeX spec chars  file
+3. Provide cyrillic transliterations in ascii.replacements
+
+4. Make catdoc work when compilied with Watcom C

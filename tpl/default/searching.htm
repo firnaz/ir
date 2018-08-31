@@ -1,0 +1,46 @@
+{$time}{$messages}<br>
+<div align="right">{$info_page}</div>
+{section name=list loop=$nama_data}
+<div style="background-color:{cycle values='#ECF6E3,#E6F6E3'};padding-top:1px;padding-bottom:1px">
+<hr align="center" size="1px" noshade color="#C7C9C8">
+<table width="550"  border="0" cellspacing="0" cellpadding="3">
+  <tr>
+    <td width="70" align="center" valign="top"><img src="images/{$file_image[list]}" border="1"></td>
+    <td style="padding-left:5px; "><table width="100%"  border="0" cellspacing="0" cellpadding="3">
+      <tr>
+        <td colspan="3"><strong>{$nama_data[list]}</strong></td>
+      </tr>
+      <tr>
+        <td width="30%" valign="top"><strong>Terakhir diupdate </strong></td>
+        <td colspan="2">{$last_update[list]}</td>
+      </tr>
+      <tr>
+        <td width="30%" valign="top"><strong>Bagian</strong></td>
+        <td colspan="2">{$nama_bagian[list]}</td>
+      </tr>
+      <tr>
+        <td width="30%" valign="top"><strong>Penulis</strong></td>
+        <td colspan="2">{$penulis[list]}</td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>File </strong></td>
+        <td colspan="2">{$nama_file[list]} ({$ukuran_file[list]})</td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>Deskripsi File </strong></td>
+        <td colspan="2">{$deskripsi[list]}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td width="33%"><a href="download.php?id_data={$id_data[list]}" target="_self" class="link">Download<img src="images/arrow.PNG" width="7" height="8" border="0"></a></td>
+        <td width="37%"> <a href="javascript:void(0);"  onClick="window.open('view_cache.php?id_data={$id_data[list]}&q={$query}','OpenDocument',config='location=no,directories=yes,status=yes,scrollbars=yes,width=800,height=450,top=50,left=50');" class="link">Tersimpan</a> </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<hr align="center" size="1px" noshade color="#C7C9C8">
+</div>
+<div style=";padding-bottom:3px"></div>
+{/section}<br>
+<div> {$pagenavigation}</div>
+<br>

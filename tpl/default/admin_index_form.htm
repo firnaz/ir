@@ -1,0 +1,101 @@
+{literal}
+<script src="images/cfm.js" type="text/javascript" language="javascript"></script>
+{/literal}
+
+<table width="350"  border="0" cellspacing="2" cellpadding="3">
+  <tr>
+    <td width="765" bgcolor="#A8E2C8"><strong> Seluruh Dokumen </strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#A8E2C8"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="30" align="center"><form action="tokenize.php" method="post" name="Index_all" target="_top" id="Index_all" style="margin:0px;"
+			onSubmit="document.getElementById('loading').style.visibility='visible'">
+          <input type="submit" name="Submit" value="Index Seluruh Dokumen" class="button" >
+          <input name="mode" type="hidden" id="mode3" value="all">
+                                </form></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+<br>
+<table width="350"  border="0" cellspacing="2" cellpadding="3" >
+  <tr>
+    <td width="767" bgcolor="#A8E2C8"><strong>Bagian </strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#A8E2C8"><form action="tokenize.php" method="post" name="index_bagian" target="_self" id="index_bagian" style="margin:0px"
+							onSubmit="document.getElementById('loading').style.visibility='visible'">
+      <table width="100%"  border="0" cellspacing="0" cellpadding="3" >
+        <tr>
+          <td width="32%"><strong>Pilih Bagian : </strong></td>
+          <td width="68%">      <select name="pilih_bagian" id="pilih_bagian" class="textbox">
+	{html_options values=$ids_bagian selected=$id_bagian output=$nama_bagian}
+      </select></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><input type="submit" name="Submit2" value="Index Bagian" class="button">
+            <input name="mode" type="hidden" id="mode" value="bagian"></td>
+        </tr>
+      </table>
+    </form> </td>
+  </tr>
+</table>
+<br>
+<table width="100%"  border="0" cellspacing="2" cellpadding="3">
+  <tr>
+    <td bgcolor="#A8E2C8"><strong>Dokumen</strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#A8E2C8"><form action="tokenize.php" method="post" name="index_dokumen" target="_self" id="index_dokumen" style="margin:0px "
+							onSubmit="document.getElementById('loading').style.visibility='visible'">
+      <table width="100%"  border="0" cellspacing="0" cellpadding="3">
+        <tr bgcolor="#D3DCE3" >
+          <td width="3%">&nbsp;</td>
+          <td width="29%" align="center"><strong>Nama Dokumen </strong></td>
+          <td width="14%" align="center"><strong>Bagian</strong></td>
+          <td width="37%" align="center"><strong>Nama File </strong></td>
+          <td width="17%" align="center"><strong>Ukuran File </strong></td>
+        </tr>
+        {section name=list loop=$nama_data}
+		<tr bgcolor="{cycle values='#ECF6E3,#E6ECD8'}">
+          <td><input name="id_data[]" type="checkbox" id="id_data[]" value="{$id_data[list]}"></td>
+          <td>{$nama_data[list]}</td>
+          <td>{$bagian[list]}</td>
+          <td>{$nama_file[list]}</td>
+          <td align="right">{$ukuran_file[list]}</td>
+        </tr>
+		{/section}
+        <tr>
+          <td colspan="5">{$pagenavigation}</td>
+          </tr>
+        <tr>
+          <td colspan="5"><input type="submit" name="Submit3" value="Index Dokumen" class="button">
+            <input name="mode" type="hidden" id="mode" value="dokumen"></td>
+          </tr>
+      </table>
+    </form></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><a href="hasil_index.php" class="link">Hasil Pengindeksan </a><br>
+</p>
+<div id="loading" 
+style="visibility:hidden;
+	  position:absolute;
+	  top:250px;
+	  left:400px;
+	  background-color:#00FFCC;
+	  height:80px;
+	  width:240px;
+	  border:1px solid black;
+	  z-index:2;
+	  "><table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="middle"><strong>Harap tunggu :<br>
+      sedang meng-indeks...</strong></td>
+  </tr>
+</table>
+</div>

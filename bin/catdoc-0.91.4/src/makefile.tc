@@ -1,0 +1,7 @@
+CC=tcc
+CFLAGS=-w -mc  
+OBJ=catdoc.obj charsets.obj substmap.obj reader.obj writer.obj fileutil.obj
+.c.obj:
+	$(CC) -c $(CFLAGS) $*
+catdoc.exe: $(OBJ)
+	$(CC) $(CFLAGS) -o$<  $(OBJ) 

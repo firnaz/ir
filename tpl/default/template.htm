@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{$title}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<base href="{$base}" />
+<link href="images/style.css" rel="stylesheet" type="text/css">
+<meta name="OBGZip" content="false" />
+</head>
+
+<body {$script}>
+<table width="784"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>{include file=$header} </td>
+  </tr>
+  <tr>
+    <td ><img src="images/spacer.gif" width="1" height="4"></td>
+  </tr>
+  <tr>
+    <td style="border-left: 2px solid #C7C9C8; border-right:2px solid #C7C9C8;"><table width="100%"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="581" valign="top" style="padding:5px;border-bottom:2px solid #C7C9C8;border-top:2px solid #C7C9C8;border-right:2px solid #C7C9C8"><table width="571"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="291" height="15" style="padding-bottom:2px "><strong>{$topnavigasi}</strong></td>
+            <td width="280" align="right" style="padding-bottom:2px ">{$msg}</td>
+          </tr>
+          <tr bgcolor="#F4FCF8">
+            <td height="300" colspan="2" valign="top" style="border:1px solid black;padding:5px; ">{include file=$content}</td>
+          </tr>
+          <tr>
+            <td height="15" colspan="2" style="padding-top:2px ">{$bottomnavigasi}</td>
+          </tr>
+        </table></td>
+        <td width="1" style="border-right:2px solid #C7C9C8 "><img src="images/spacer.gif" width="4" height="4"></td>
+        <td width="197" valign="top" style="padding:5px;border-bottom:2px solid #C7C9C8;border-top:2px solid #C7C9C8  ">{include file=$right}</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td style="border-bottom:2px solid #C7C9C8"><img src="images/spacer.gif" width="1" height="4"></td>
+  </tr>
+  <tr>
+    <td style="padding-top:5px "><div align="center">&copy; Bank Data 2005 </div></td>
+  </tr>
+</table>
+</body>
+</html>

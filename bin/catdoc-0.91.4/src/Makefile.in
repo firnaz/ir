@@ -1,0 +1,94 @@
+# Your C compilier and flags
+SHELL = /bin/sh
+
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+VPATH = @srcdir@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+installroot = @installroot@
+
+bindir = @bindir@
+libdir = @libdir@
+mandir = @mandir@
+INSTALL = @INSTALL@
+WISH = @WISH@
+CC = @CC@
+build_targets = @buildtargets@
+install_targets = @installtargets@
+# Flags to pass to your C compilier
+# remove -O2 on HP/UX 9. It is known to cause problems
+FLAGS=-Wall -O2 -g 
+
+#Compile-time configuration of catdoc itself. Edit according to taste
+
+#Directory, where all system-wide stuff resides
+LIB_DIR=$(libdir)/catdoc
+#directory, where catdoc binary would be placed
+#directory where to put man page
+
+#System-wide configuration file
+SYSTEMRC=$(LIB_DIR)/catdocrc
+
+#Per-user configration file (in user's home directory
+USERRC=.catdocrc
+
+# path where to search for charsets. may be colon-separated list of dirs
+CHARSETPATH=$(LIB_DIR)
+
+# Extension for map of special character
+SPEC_EXT=@specsuffix@
+
+# Extension for map of substitutes (chars which are missing from target
+# charset)
+REPL_EXT=@replsuffix@
+
+# Target charset - one used on your system console or xterm
+TARGET_CHARSET=@targetcharset@
+
+# Source charset - one which your Word files are usially in unless they
+# are UNICODE
+SOURCE_CHARSET=@sourcecharset@
+
+# Character which would be printed instead of ones, not found in charset
+# or replacement map
+UNKNOWN_CHAR=?
+
+# END OF COMPILE-TIME CONFIGURATION
+
+DEFINES=-DSYSTEMRC=\"$(SYSTEMRC)\" -DUSERRC=\"$(USERRC)\"\
+ -DCHARSETPATH=\"$(CHARSETPATH)\" -DSPEC_EXT=\"$(SPEC_EXT)\"\
+ -DREPL_EXT=\"$(REPL_EXT)\" -DUNKNOWN_CHAR=\'$(UNKNOWN_CHAR)\'\
+ -DSOURCE_CHARSET=\"$(SOURCE_CHARSET)\" -DTARGET_CHARSET=\"$(TARGET_CHARSET)\"
+
+CFLAGS=$(FLAGS) $(DEFINES) @DEFS@
+OBJ=catdoc.o charsets.o substmap.o reader.o writer.o fileutil.o\
+	confutil.o analyze.o rtfreader.o
+
+OBJXLS=xls2csv.o charsets.o substmap.o fileutil.o confutil.o
+
+#.c.o:
+#	$(CC) -c $(CFLAGS) $*
+all: @buildtargets@
+catdoc: $(OBJ)
+	$(CC)  -o catdoc  $(OBJ)
+xls2csv: $(OBJXLS)
+	$(CC) -o xls2csv $(OBJXLS) -lm
+install: @installtargets@
+install-catdoc:catdoc xls2csv
+	../mkinstalldirs $(installroot)$(bindir)
+	$(INSTALL) -m 755 catdoc $(installroot)$(bindir)/catdoc
+	$(INSTALL) -m 755 xls2csv $(installroot)$(bindir)/xls2csv
+	$(INSTALL) -m 755 msxlsview.sh $(installroot)$(bindir)/xlsview
+install-wordview: wordview 
+	../mkinstalldirs $(installroot)$(bindir)
+	$(INSTALL) -m 755 wordview $(installroot)$(bindir)/wordview
+wordview: wordview.tcl
+	echo "#! $(WISH)" >wordview
+	echo set charset_lib "\"$(LIB_DIR)\"">>wordview
+	cat wordview.tcl >>wordview
+	chmod 0755 wordview
+clean:
+	rm -f *.o catdoc wordview xls2csv
+distclean: clean
+	rm Makefile

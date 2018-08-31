@@ -1,0 +1,72 @@
+.TH xls2csv 1  "Version 0.91" "MS-Word reader"
+.SH NAME
+xls2csv \- reads MS-Excel file and puts its content as comma-separated data on standard output
+.SH SYNOPSIS
+
+.BR "xls2csv " [ -xl ] 
+.RB [ -s 
+.IR " charset " ] 
+.RB [ -d 
+.IR " charset " ] 
+.RB [-q 
+.IR " number " ] 
+.RB [ -c 
+.IR " char" ] 
+.I files
+
+.SH DESCRIPTION
+
+.B xls2csv 
+reads MS-Excel spreadsheet and dumps its content as comma-separated
+values to stdout. Numbers are printed without delimiters, strings are
+enclosed in the double quotes. Double-quotes inside string are doubled.
+.SH "OPTIONS"
+.TP 8
+.BR -x
+print unknown unicode chars as \xNNNN, rather than as question marks
+.TP 8
+.BR -l
+list known charsets and exit successfully
+.TP 8
+.BI -c char
+cell separator char. By default - comma.
+.TP 8
+.BI -q number
+set quote mode. In quote mode 0 cell contents is never quoted.
+In quote mode 1 only strings which contain spaces, double quotes or
+commas are quoted.
+In quote mode 2 (default) all cells with type string are quoted.
+In quote mode 3 all cellsa are quoted.
+.
+.TP 8
+.BI -d charset
+- specifies destination charset name. Charset file has format described in
+CHARACTER SETS below and should have 
+.B .txt
+extension  and reside in 
+.B catdoc library directory (normally /usr/local/lib/catdoc).
+.TP 8
+.BI -d charset
+- specifies destination charset name. Charset file has format described in
+CHARACTER SETS section of 
+.BR catdoc (1)
+manual
+.TP 8
+.BI -s charset
+- specifies source charset. Typically, Excel files have CODE PAGE
+record, which denotes input charset, but for some reason you may wish to 
+override it.
+.SH BUGS
+Date cells are not recognized and printed as floating point number of days since
+1-01-1900. Probably many others.
+.SH "SEE ALSO"
+
+.BR cat (1),
+.BR catdoc (1),
+.BR strings (1),
+.BR utf (4),
+.BR unicode (4)
+
+.SH AUTHOR
+
+V.B.Wagner <vitus@ice.ru>, based on biffview by David Rysdam

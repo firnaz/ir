@@ -1,0 +1,37 @@
+<form action="admin_data.php" method="post" enctype="multipart/form-data" name="frmUpdateData" style="margin:0px ">
+  <table width="356" border="0" cellspacing="2" cellpadding="5">
+    <tr bgcolor="#A8E2C8">
+      <td>File * </td>
+      <td>:</td>
+      <td><input name="upload_file" type="file" id="upload_file" class="textbox">
+    {$nama_file}</td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td width="97">Nama Data * </td>
+      <td width="3">:</td>
+      <td width="218"><input name="nama_data" type="text" id="nama_data" value="{$nama_data}" class="textbox"></td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td>Bagian * </td>
+      <td>:</td>
+      <td><select name="id_bagian" id="id_bagian" class="textbox">
+			{html_options values=$ids_bagian selected=$id_bagian output=$nama_bagian}
+		</select>
+	</td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td>Penulis</td>
+      <td>:</td>
+      <td><input name="penulis" type="text" id="penulis" value="{$penulis}" class="textbox"></td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td colspan="3"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr align="center">
+          <td><input type="submit" name="action" value="{$action}" class="button">
+            <input name="id_data" type="hidden" id="id_data" value="{$id_data}"></td>
+          <td>{$cancel}</td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+</form>

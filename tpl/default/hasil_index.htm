@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table width="100%"  border="0" cellspacing="0" cellpadding="3">
+  <tr  >
+    <td width="3%">&nbsp;</td>
+    <td width="24%" bgcolor="#D3DCE3"><strong>Total Indeks Kata : </strong></td>
+    <td width="18%" bgcolor="#D3DCE3">{$totalindex}</td>
+    <td width="38%" align="center" >&nbsp;</td>
+    <td width="17%" align="center" >&nbsp;</td>
+  </tr>
+  <tr >
+    <td>&nbsp;</td>
+    <td bgcolor="#D3DCE3"><strong>Daftar Indeks  : </strong></td>
+    <td bgcolor="#D3DCE3"><form id="hasil_index" name="hasil_index" method="get" action="hasil_index.php" style="margin:0">
+        <select name="huruf_depan" class="textbox" id="huruf_depan" onchange="mode.value='list';this.form.submit();">
+          <option value="" {$null}></option>
+          <option value="a" {$a}>A</option>
+          <option value="b" {$b}>B</option>
+          <option value="c" {$c}>C</option>
+          <option value="d" {$d}>D</option>
+          <option value="e" {$e}>E</option>
+          <option value="f" {$f}>F</option>
+          <option value="g" {$g}>G</option>
+          <option value="h" {$h}>H</option>
+          <option value="i" {$i}>I</option>
+          <option value="j" {$j}>J</option>
+          <option value="k" {$k}>K</option>
+          <option value="l" {$l}>L</option>
+          <option value="m" {$m}>M</option>
+          <option value="n" {$n}>N</option>
+          <option value="o" {$o}>O</option>
+          <option value="p" {$p}>P</option>
+          <option value="q" {$q}>Q</option>
+          <option value="r" {$r}>R</option>
+          <option value="s" {$s}>S</option>
+          <option value="t" {$t}>T</option>
+          <option value="u" {$u}>U</option>
+          <option value="v" {$v}>V</option>
+          <option value="w" {$w}>W</option>
+          <option value="x" {$x}>X</option>
+          <option value="y" {$y}>Y</option>
+          <option value="z" {$z}>Z</option>
+        </select>
+        <input name="mode" type="hidden" id="mode" />
+    </form></td>
+    <td>&nbsp;</td>
+    <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="4"><h2>{$judul}</h2></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="4">{$pagenavigation}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="4">&nbsp;</td>
+  </tr>
+  {section name=list loop=$indeks}
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="4">{$indeks[list]}</td>
+  </tr>
+  {/section}
+</table>
+</body>
+</html>

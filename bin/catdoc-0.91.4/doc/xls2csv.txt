@@ -1,0 +1,132 @@
+
+
+
+xls2csv(1)                                             xls2csv(1)
+
+
+NAME
+       xls2csv  -  reads  MS-Excel  file  and puts its content as
+       comma-separated data on standard output
+
+SYNOPSIS
+       xls2csv [-xl] [-s  charset ] [-d  charset ] [-q  number  ]
+       [-c  char] files
+
+
+DESCRIPTION
+       xls2csv  reads  MS-Excel spreadsheet and dumps its content
+       as comma-separated values to stdout. Numbers  are  printed
+       without  delimiters,  strings  are  enclosed in the double
+       quotes. Double-quotes inside string are doubled.
+
+OPTIONS
+       -x      print unknown unicode chars as NN, rather than  as
+               question marks
+
+       -l      list known charsets and exit successfully
+
+       -cchar  cell separator char. By default - comma.
+
+       -qnumber
+               set  quote  mode. In quote mode 0 cell contents is
+               never quoted.  In quote mode 1 only strings  which
+               contain   spaces,  double  quotes  or  commas  are
+               quoted.  In quote mode 2 (default) all cells  with
+               type  string  are  quoted.   In  quote  mode 3 all
+               cellsa are quoted.
+
+       -dcharset
+               - specifies destination charset name. Charset file
+               has  format  described in CHARACTER SETS below and
+               should have .txt extension  and reside  in  catdoc
+               library  directory  (normally  /usr/local/lib/cat-
+               doc).
+
+       -dcharset
+               - specifies destination charset name. Charset file
+               has  format described in CHARACTER SETS section of
+               catdoc(1) manual
+
+       -scharset
+               - specifies source charset. Typically, Excel files
+               have   CODE   PAGE  record,  which  denotes  input
+               charset, but for some reason you may wish to over-
+               ride it.
+
+BUGS
+       Date  cells  are  not  recognized  and printed as floating
+       point number of days since 1-01-1900. Probably  many  oth-
+       ers.
+
+
+
+
+MS-Word reader             Version 0.91                         1
+
+
+
+
+
+xls2csv(1)                                             xls2csv(1)
+
+
+SEE ALSO
+       cat(1), catdoc(1), strings(1), utf(4), unicode(4)
+
+
+AUTHOR
+       V.B.Wagner <vitus@ice.ru>, based on biffview by David Rys-
+       dam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MS-Word reader             Version 0.91                         2
+
+

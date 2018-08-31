@@ -1,0 +1,30 @@
+<form name="form1" method="post" action="" style="margin:0px ">
+  <table width="354"  border="0" cellpadding="5"  cellspacing="2"  style="border:1px solid black;padding:5px">
+    <tr bgcolor="#A8E2C8">
+      <td width="152">Nama Bagian Lama</td>
+      <td width="1">:</td>
+      <td width="167">{$nama_bagian_lama}</td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td>Nama Bagian Baru </td>
+      <td>:</td>
+      <td><input name="bagian_baru" type="text" class="textbox" id="bagian_baru" value="{$nama_bagian_baru}"></td>
+    </tr>
+    <tr bgcolor="#A8E2C8">
+      <td colspan="3"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td><div align="center">
+            <input type="submit" name="Submit" value="Update" class="button">
+            <input name="state" type="hidden" id="state" value="edit">
+            <input name="id_bagian" type="hidden" id="id_bagian" value="{$id_bagian}">
+            <input name="folder_lama" type="hidden" id="folder_lama" value="{$folder_lama}">
+          </div></td>
+          <td><div align="center">
+            <input type="button" name="Submit2" value="Cancel" onClick="history.back()" class="button">
+            <input name="action" type="hidden" id="action" value="edit">
+          </div></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+</form>

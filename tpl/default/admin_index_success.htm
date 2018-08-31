@@ -1,0 +1,24 @@
+Pengindeksan dilakukan dalam waktu <strong>{$totaltime}</strong>. <br>
+<br>
+Jumlah halaman ter-indeks : {$jumlah_halaman}<br>
+<br>
+<hr size="1" noshade>
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="2">
+  {section name=list loop=$no}
+    <tr>
+    <td width="5%" align="left" valign="top">{$no[list]} </td>
+    <td width="93%">{$nama_data[list]}<br>
+      {$nama_file[list]} ({$ukuran_file[list]}) <br>
+      Total kata ter-indeks : {$total_kata[list]}</td>
+  </tr>
+    <tr>
+      <td align="left" valign="top"><img src="images/spacer.gif" width="1" height="2"></td>
+      <td><img src="images/spacer.gif" width="1" height="2"></td>
+    </tr>
+  {/section}
+</table>
+
+<hr size="1" noshade>
+<br>
+<a href="admin_index.php" class="link">Kembali ke halaman indeks</a>
